@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -53,6 +52,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(projects.shared)
             implementation(libs.kamel.image)
+            implementation(libs.ktor.core)
+            implementation(libs.ktor.content.negociation)
+            implementation(libs.ktor.serialization.json)
+            implementation(libs.ktor.logging)
 
         }
         commonTest.dependencies {
