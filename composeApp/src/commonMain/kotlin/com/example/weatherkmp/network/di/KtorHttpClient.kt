@@ -1,4 +1,4 @@
-package com.example.weatherkmp.data
+package com.example.weatherkmp.network.di
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
@@ -49,7 +49,7 @@ class KtorHttpClient {
         install(Logging) {
             logger = object : Logger {
                 override fun log(message: String) {
-                   // Log.v("Logger Ktor =>", message)
+                    //Log.v("Logger Ktor =>", message)
                 }
             }
             level = LogLevel.ALL

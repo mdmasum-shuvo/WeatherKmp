@@ -40,6 +40,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.kotlinx.coroutines.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -56,10 +57,16 @@ kotlin {
             implementation(libs.ktor.content.negociation)
             implementation(libs.ktor.serialization.json)
             implementation(libs.ktor.logging)
+            implementation(libs.kotlinx.serialization.json)
+            api(libs.koin.core)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.kotlinx.coroutines.core)
 
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutines.test)
+
         }
     }
 }

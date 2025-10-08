@@ -1,4 +1,4 @@
-package com.masum.network.asset_data.zilla_data
+package com.example.weatherkmp.network.zilla_data
 
 import kotlinx.serialization.Serializable
 
