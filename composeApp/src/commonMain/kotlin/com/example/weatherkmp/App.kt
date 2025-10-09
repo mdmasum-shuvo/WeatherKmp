@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.weatherkmp.ui.component.SimpleScaffold
 import com.example.weatherkmp.ui.screen.HomeScreen
 import com.example.weatherkmp.ui.theme.WeatherTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -29,7 +30,7 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            HomeScreen()
+            SimpleScaffold() { HomeScreen() }
         }
     }
 }

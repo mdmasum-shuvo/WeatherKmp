@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,55 +36,55 @@ fun HomeScreen(){
     val longitude = remember {
         mutableStateOf("0")
     }
-    Box(
-        Modifier
-            .fillMaxSize()
-            .background(
-                brush = gradientColor()
-            )
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
+        Box(
+            Modifier
+                .fillMaxSize().systemBarsPadding()
+
         ) {
-            Row {
-                LocationFieldWithIcon(title = "Selected Location",
-                    latitude = latitude,
-                    longitude = longitude,
-                    onLocationSelected = { lat, lng, isClicked ->
-
-
-                    })
-            }
-            Spacer16DPH()
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
             ) {
-                WeatherData(
-                    WeatherDto(
-                        temp = 21.20,
-                        feelLike = 20.1,
-                        description = "Sunny",
-                        icon = ""
+                Row {
+                    LocationFieldWithIcon(
+                        title = "Selected Location",
+                        latitude = latitude,
+                        longitude = longitude,
+                        onLocationSelected = { lat, lng, isClicked ->
+
+
+                        })
+                }
+                Spacer16DPH()
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    WeatherData(
+                        WeatherDto(
+                            temp = 21.20,
+                            feelLike = 20.1,
+                            description = "Sunny",
+                            icon = ""
+                        )
                     )
-                )
 
-            }
-            Spacer16DPH()
+                }
+                Spacer16DPH()
 
-            Button(onClick = {
-               // navController.navigate(com.masum.weather.route.SearchScreen)
-            }) {
-                TextView16_W400(
-                    value = "Search Location", color = white_color
-                )
+                Button(onClick = {
+                    // navController.navigate(com.masum.weather.route.SearchScreen)
+                }) {
+                    TextView16_W400(
+                        value = "Search Location", color = white_color
+                    )
+                }
             }
         }
-    }
+
 }
 
 @Composable
