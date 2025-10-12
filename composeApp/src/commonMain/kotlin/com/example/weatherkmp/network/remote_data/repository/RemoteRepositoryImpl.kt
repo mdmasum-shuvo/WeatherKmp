@@ -6,6 +6,7 @@ import com.example.weatherkmp.network.remote_data.data_source.RemoteDataSource
 import com.example.weatherkmp.network.remote_data.model.weather.WeatherResponse
 import io.ktor.client.call.body
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class RemoteRepositoryImpl(

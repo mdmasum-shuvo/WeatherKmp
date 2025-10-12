@@ -22,12 +22,12 @@ class KtorHttpClient {
 
     private val client = HttpClient {
         defaultRequest {
-            url("BuildConfig.BASE_URL")
+            url("https://api.openweathermap.org/data/2.5/")
             contentType(ContentType.Application.Json)
             accept(ContentType.Application.Json)
         }
 
-        install(ContentNegotiation) {
+/*        install(ContentNegotiation) {
             json(
                 Json {
                     prettyPrint = true
@@ -35,6 +35,14 @@ class KtorHttpClient {
                     useAlternativeNames = true
                     ignoreUnknownKeys = true
                     encodeDefaults = false
+                }
+            )
+        }*/
+        install(ContentNegotiation) {
+            json(contentType = ContentType.Application.Json,
+                json = Json {
+                    isLenient = true
+                    ignoreUnknownKeys = true
                 }
             )
         }
@@ -53,6 +61,7 @@ class KtorHttpClient {
                 }
             }
             level = LogLevel.ALL
+
         }
 
         install(ResponseObserver) {

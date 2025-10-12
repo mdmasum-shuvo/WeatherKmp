@@ -13,6 +13,7 @@ class RemoteDataSource(private val client: HttpClient) {
             url(HttpParam.WEATHER)
             parameter(HttpParam.LATITUDE, lat)
             parameter(HttpParam.LONGITUDE, lng)
-            parameter(HttpParam.APP_ID, "BuildConfig.API_KEY")
+            parameter(HttpParam.APP_ID, "3c95a5e4b76968937c7c2073e6f4ecaf")
+            headers.append("Access-Control-Allow-Origin", "*")
         }
 }
